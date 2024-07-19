@@ -10,7 +10,7 @@
             <div class="form-group">
                 <label for="category">Chọn danh mục:</label>
                 <select name="category_id" id="category" class="form-control">
-                    <option value="" selected>--Chưa Chọn</option>
+                    <option value="" selected>--Chưa Chọn--</option>
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
@@ -26,7 +26,8 @@
                     <div class="card-body">
                         <h3 class="card-title"><a href="{{ route('posts.show', $post->id) }}">{{ $post->title }}</a>
                         </h3>
-                        <p class="card-text">{{ $post->content }}</p>
+                        <img src="{{ $post->img }}" width="400" alt="{{ $post->title }}">
+                        <p class="card-text">{{ $post->description }}</p>
                     </div>
                 </div>
             @endforeach

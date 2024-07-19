@@ -40,7 +40,9 @@ class PostController extends Controller
     }
     public function show($id)
     {
-        $post = DB::table('posts')->where('id', $id)->first();
+        // $post = DB::table('posts')->where('id', $id)->first();
+        $post = Post::with('comments')->find($id);
+
 
         return view(self::PATH_VIEW . 'show', compact('post'));
     }
@@ -49,6 +51,7 @@ class PostController extends Controller
     {
         $post = DB::table('posts')->where('id', $id)->first();
         $categories = DB::table('categories')->get();
+
         return view(self::PATH_VIEW . 'edit', compact('post', 'categories'));
     }
     public function update(Request $request, $id)

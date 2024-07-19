@@ -12,6 +12,30 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+
+    const TYPE_ADMIN = 'admin';
+    const TYPE_MEMBER = 'member';
+
+
+    // Kiểm tra xem người dùng có phải là admin không
+    public function isAdmin()
+    {
+        return $this->type === 'admin';
+    }
+
+    // Kiểm tra xem người dùng có phải là người dùng thông thường không
+    public function isUser()
+    {
+        return $this->type === 'user';
+    }
+
+    public function type()
+    {
+
+        return $this->type;
+    }
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +45,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'type',
     ];
 
     /**
