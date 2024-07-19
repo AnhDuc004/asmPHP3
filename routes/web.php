@@ -27,7 +27,7 @@ Route::get('/categories/create', [CategoryController::class, 'create'])->name('c
 Route::post('/categories/create', [CategoryController::class, 'store'])->name('categories.store');
 Route::get('/categories/edit/{id}', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::put('/categories/edit/{id}', [CategoryController::class, 'update'])->name('categories.update');
-Route::delete('/categories/edit/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+Route::delete('/categories/delete/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create'])->name('posts.create');
@@ -35,7 +35,7 @@ Route::post('/posts/create', [PostController::class, 'store'])->name('posts.stor
 Route::get('/posts/show/{id}', [PostController::class, 'show'])->name('posts.show');
 Route::get('/posts/edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
 Route::put('/posts/edit/{id}', [PostController::class, 'update'])->name('posts.update');
-Route::delete('/posts/edit/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
+Route::delete('/posts/delete/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
 
 
 Route::get('/search', [PostController::class, 'search'])->name('posts.search');
